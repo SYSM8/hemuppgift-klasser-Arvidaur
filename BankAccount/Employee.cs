@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee
+namespace BankAccount
 {
     public class Employee
     {
-        public string firstName = { get; set; }
-        public string lastName = { get; set; }
-        public int salary = { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public int salary { get; set; }
 
         //Constructor
-        public Employee(string firstName, string lastName, int salary) 
-        { 
+        public Employee(string firstName, string lastName, int salary)
+        {
             this.firstName = firstName;
             this.lastName = lastName;
             this.salary = salary;
@@ -28,8 +27,8 @@ namespace Employee
 
         public void GiveRaise(double percentage)
         {
-            percentage = percentage / 100 + 1;
-            Console.WriteLine($"Percentage {percentage}");
-            salary *= percentage;
+            double raisefactor = percentage / 100 + 1;
+            salary = (int)(salary * raisefactor);
         }
+    }
 }

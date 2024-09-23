@@ -8,27 +8,95 @@ namespace BankAccount
 {
     public class Employee
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int salary { get; set; }
+        private string firstName;
+        private string lastName;
+        private double salary;
+        private int age;
+
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                lastName = value;
+            }
+        }
+
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    age = value;
+                }
+                else
+                {
+                    Console.WriteLine("Age cannot be a negative number");
+                }
+            }
+        }
+
+        public double Salary
+        {
+            get
+            {
+                return salary;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    salary = value;
+                }
+                else
+                {
+                    Console.WriteLine("Salary must be positive");
+                }
+            }
+        }
 
         //Constructor
-        public Employee(string firstName, string lastName, int salary)
+        public Employee(string firstName, string lastName, double salary, int age)
         {
             this.firstName = firstName;
             this.lastName = lastName;
-            this.salary = salary;
+            Salary = salary;
+            Age = age;
         }
 
-        public int GetAnnualSalary()
+        public double GetAnnualSalary()
         {
-            return salary * 12;
+            return Salary * 12;
         }
 
         public void GiveRaise(double percentage)
         {
-            double raisefactor = percentage / 100 + 1;
-            salary = (int)(salary * raisefactor);
+            Salary = Salary * (percentage / 100 + 1);
+        }
+
+        public void DisplayEmployeeInfo()
+        {
+            Console.WriteLine($"Employee's name is {firstName} {lastName}. Mr/ms {lastName} is {age} years old.");
         }
     }
 }

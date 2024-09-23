@@ -27,14 +27,15 @@
 
 
 
-            Employee employee1 = new Employee("Arvid", "Rönnkvist", 35000);
-            Console.WriteLine($"Monthly salary: {employee1.salary}");
+            Employee employee1 = new Employee("Arvid", "Rönnkvist", 35000, 28);
+            Console.WriteLine($"Monthly salary: {employee1.Salary}");
             Console.WriteLine($"Annual salary: {employee1.GetAnnualSalary()}");
 
             employee1.GiveRaise(10);
 
-            Console.WriteLine($"New Monthly Salary: {employee1.salary}");
+            Console.WriteLine($"New Monthly Salary: {employee1.Salary}");
             Console.WriteLine($"New Annual Salary: {employee1.GetAnnualSalary()}");
+            employee1.DisplayEmployeeInfo();
 
             //Instansiera bankAccount klassen och testa den
 
